@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c0334af9-7e11-468d-809c-2fb601a0d1a3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZGej01Zg0daZJs9kGM2kVoWrMX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="JUnit.ArticleTests.testCompareArticleTitle">
+    <configuration name="ArticleTests.testCompareArticleTitle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppium" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.ArticleTests" />
+      <option name="METHOD_NAME" value="testCompareArticleTitle" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <envs>
+        <env name="PLATFORM" value="mobile_web" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTests.testAmountOfEmptySearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.SearchTests" />
+      <option name="METHOD_NAME" value="testAmountOfEmptySearch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTests.testCancelSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppium" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.SearchTests" />
+      <option name="METHOD_NAME" value="testCancelSearch" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <envs>
+        <env name="PLATFORM" value="mobile_web" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTests.testSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppium" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.SearchTests" />
+      <option name="METHOD_NAME" value="testSearch" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <envs>
+        <env name="PLATFORM" value="mobile_web" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="JavaAppium" />
+      <useClassPathOnly />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <envs>
+        <env name=" PLATFORM" value="mobile_web" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.Unnamed" />
+      <item itemvalue="JUnit.SearchTests.testSearch" />
+      <item itemvalue="JUnit.ArticleTests.testCompareArticleTitle" />
+      <item itemvalue="JUnit.SearchTests.testCancelSearch" />
+      <item itemvalue="JUnit.SearchTests.testAmountOfEmptySearch" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ArticleTests.testCompareArticleTitle" />
+        <item itemvalue="JUnit.SearchTests.testCancelSearch" />
+        <item itemvalue="JUnit.SearchTests.testSearch" />
+        <item itemvalue="JUnit.SearchTests.testAmountOfEmptySearch" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c0334af9-7e11-468d-809c-2fb601a0d1a3" name="Default Changelist" comment="" />
+      <created>1584469988087</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584469988087</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="323" y="102" key="#Inspections" timestamp="1584470903524">
+      <screen x="0" y="23" width="1440" height="798" />
+    </state>
+    <state x="323" y="102" key="#Inspections/0.23.1440.798@0.23.1440.798" timestamp="1584470903524" />
+    <state x="298" y="92" key="#Unnamed" timestamp="1584972785862">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state x="298" y="92" key="#Unnamed/0.23.1440.795@0.23.1440.795" timestamp="1584972785862" />
+    <state x="-108" y="55" width="1071" height="765" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584979136199">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state x="-108" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.795@0.23.1440.795" timestamp="1584979136199" />
+    <state x="187" y="56" width="1071" height="765" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.798@0.23.1440.798" timestamp="1584470435474" />
+    <state x="477" y="165" key="EnvironmentVariablesDialog" timestamp="1584975457084">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state x="477" y="165" key="EnvironmentVariablesDialog/0.23.1440.795@0.23.1440.795" timestamp="1584975457084" />
+    <state width="1392" height="219" key="GridCell.Tab.0.bottom" timestamp="1584979138175">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1392" height="219" key="GridCell.Tab.0.bottom/0.23.1440.795@0.23.1440.795" timestamp="1584979138175" />
+    <state width="1392" height="219" key="GridCell.Tab.0.center" timestamp="1584979138174">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1392" height="219" key="GridCell.Tab.0.center/0.23.1440.795@0.23.1440.795" timestamp="1584979138174" />
+    <state width="1392" height="219" key="GridCell.Tab.0.left" timestamp="1584979138174">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1392" height="219" key="GridCell.Tab.0.left/0.23.1440.795@0.23.1440.795" timestamp="1584979138174" />
+    <state width="1392" height="219" key="GridCell.Tab.0.right" timestamp="1584979138174">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1392" height="219" key="GridCell.Tab.0.right/0.23.1440.795@0.23.1440.795" timestamp="1584979138174" />
+    <state x="261" y="99" key="Maven.ArtifactSearchDialog" timestamp="1584471342144">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state x="261" y="99" key="Maven.ArtifactSearchDialog/0.23.1440.795@0.23.1440.795" timestamp="1584471342144" />
+    <state x="261" y="99" key="Maven.ArtifactSearchDialog/0.23.1440.798@0.23.1440.798" timestamp="1584470820745" />
+    <state x="402" y="264" key="com.intellij.ide.util.TipDialog" timestamp="1584972711294">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state x="402" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.792@0.23.1440.792" timestamp="1584471819823" />
+    <state x="402" y="264" key="com.intellij.ide.util.TipDialog/0.23.1440.795@0.23.1440.795" timestamp="1584972711294" />
+    <state x="388" y="142" width="670" height="676" key="search.everywhere.popup" timestamp="1584977986035">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state x="388" y="142" width="670" height="676" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1584977986035" />
+  </component>
+</project>
