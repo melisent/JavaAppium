@@ -16,7 +16,7 @@ public class Platform {
     private static final String PLATFORM_IOS="ios";
     private static final String PLATFORM_ANDROID="android";
     private static final String PLATFORM_MOBILE_WEB = "mobile_web";
-    private static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub";
+    private static final String APPIUM_URL = "http://10.50.5.101:4444/wd/hub";
 
     private static Platform instance;
     private Platform() {}
@@ -78,8 +78,8 @@ public class Platform {
         capabilities.setCapability("deviceName", "iPhone 8");
         capabilities.setCapability("platformVersion", "13.3");
         capabilities.setCapability("automationName", "XCUITest");
-        capabilities.setCapability("udid", "84980541-DA15-45CB-A2E9-073505A317C3");
-        capabilities.setCapability("app", "/Users/user/Desktop/JavaAppiumAutomation/apks/Wikipedia.app");
+        capabilities.setCapability("udid", "B3D315D9-5ED1-453B-9DA0-4B4680A37733");
+        capabilities.setCapability("app", "/Users/testing/Documents/Wikipedia.app");
 
         return capabilities;
     }
