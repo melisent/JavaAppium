@@ -2,43 +2,59 @@ package tests;
 
 import lib.CoreTestCase;
 import lib.Platform;
-import lib.ui.ArticlePageObject;
-import lib.ui.MyListsPageObject;
-import lib.ui.NavigationUI;
-import lib.ui.SearchPageObject;
+import lib.ui.*;
 import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.MyListsPageObjectFactory;
 import lib.ui.factories.NavigationUIFactory;
 import lib.ui.factories.SearchPageObjectFactory;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class MyListsTests extends CoreTestCase {
 
     private static final String name_of_folder = "Learning programming";
+    private static final String
+    login = "Kettariskaya",
+    password = "Karakum1996";
 
     @Test
-    public void testSaveFirstArticleToMyList()
-    {
+    public void testSaveFirstArticleToMyList() throws InterruptedException {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
-        SearchPageObject.clickByArticleWithSub("Object-oriented programming language");
+        SearchPageObject.clickByArticleWithSub("bject-oriented programming language");
 
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
 
         ArticlePageObject.waitForTitleElement();
 
+        Thread.sleep(6);
         String article_title = ArticlePageObject.getArticleTitle();
         if (Platform.getInstance().isAndroid()) {
             ArticlePageObject.addArticleToMyList(name_of_folder);
         } else {
             ArticlePageObject.addArticlesToMySaved();
         }
+        Thread.sleep(6);
+        if (Platform.getInstance().isMW()) {
+            AuthorizationPageObject Auth = new AuthorizationPageObject(driver);
+            Auth.clickAuthButton();
+            Thread.sleep(3);
+            Auth.enterLoginData(login, password);
+            Thread.sleep(3);
+            Auth.submitForm();
+
+            ArticlePageObject.waitForTitleElement();
+            assertEquals("We are not on the same page after auth", article_title, ArticlePageObject.getArticleTitle());
+            Thread.sleep(3);
+            ArticlePageObject.addArticlesToMySaved();
+        }
+
         ArticlePageObject.closeArticle();
 
         NavigationUI NavigationUI = NavigationUIFactory.get(driver);
-
+        NavigationUI.openNavigation();
         NavigationUI.clickMyLists();
 
         MyListsPageObject MyListsPageObject = MyListsPageObjectFactory.get(driver);
@@ -54,53 +70,71 @@ public class MyListsTests extends CoreTestCase {
     }
 
     @Test
-    public void testSaveTwoArticlesAndDeleteOne()
+    public void testSaveTwoArticlesAndDeleteOne() throws InterruptedException
     {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
-        SearchPageObject.clickByArticleWithSub("Object-oriented programming language");
+        SearchPageObject.clickByArticleWithSub("bject-oriented programming language");
 
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         ArticlePageObject.waitForTitleElement();
+        String article_title = ArticlePageObject.getArticleTitle();
+        if (Platform.getInstance().isAndroid()) {
+            ArticlePageObject.addArticleToMyList(name_of_folder);
+        } else {
+            ArticlePageObject.addArticlesToMySaved();
+        }
 
-        String first_article_title = ArticlePageObject.getArticleTitle();
-        String name_of_folder = "Learning Programming";
+        if (Platform.getInstance().isMW()) {
+            AuthorizationPageObject Auth = new AuthorizationPageObject(driver);
+            Auth.clickAuthButton();
+            Auth.enterLoginData(login, password);
+            Auth.submitForm();
 
+            ArticlePageObject.waitForTitleElement();
+            assertEquals("We are not on the same page after auth", article_title, ArticlePageObject.getArticleTitle());
+            Thread.sleep(3);
+            ArticlePageObject.addArticlesToMySaved();
+        }
 
-        ArticlePageObject.addArticleToMyList(name_of_folder);
         ArticlePageObject.closeArticle();
 
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Ruby");
-        SearchPageObject.clickByArticleWithSub("Programming language");
+        SearchPageObject.clickByArticleWithSub("rogramming language");
+
 
         ArticlePageObject.waitForTitleElement();
+        String article_bold_word = ArticlePageObject.getArticleFirstBoldArticleWord();
 
-        String second_article_title_before_deleting = ArticlePageObject.getArticleTitle();
-
-        ArticlePageObject.addArticleToExistingList(name_of_folder);
-        ArticlePageObject.closeArticle();
+        if (Platform.getInstance().isAndroid()) {
+            ArticlePageObject.addArticleToMyList(name_of_folder);
+        } else {
+            ArticlePageObject.addArticlesToMySaved();
+        }
 
         NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+        NavigationUI.openNavigation();
         NavigationUI.clickMyLists();
 
         MyListsPageObject MyListsPageObject = MyListsPageObjectFactory.get(driver);
-        MyListsPageObject.waitFolderByName(name_of_folder);
-        MyListsPageObject.openFolderByName(name_of_folder);
-        MyListsPageObject.swipeByArticleToDelete(first_article_title);
-        MyListsPageObject.waitForArticleToDisappearByTitle(first_article_title);
-        MyListsPageObject.waitForArticleAndAClickByTitle(second_article_title_before_deleting);
+        if (Platform.getInstance().isAndroid())
+        {
+            MyListsPageObject.waitFolderByName(name_of_folder);
+            MyListsPageObject.openFolderByName(name_of_folder);
+        }
+
+        MyListsPageObject.swipeByArticleToDelete(article_title);
+        MyListsPageObject.openTheOneSavedArticle();
 
         ArticlePageObject.waitForTitleElement();
+        String article_bold_word_after_deleting = ArticlePageObject.getArticleFirstBoldArticleWord();
 
-        String second_article_title_after_deleting = ArticlePageObject.getArticleTitle();
-
-        assertEquals(
-                "Second Article Title Changes After deleting First Article ",
-                second_article_title_before_deleting,
-                second_article_title_after_deleting
-
+        Assert.assertEquals(
+                "Wrong article was deleted",
+                article_bold_word,
+                article_bold_word_after_deleting
         );
     }
 }

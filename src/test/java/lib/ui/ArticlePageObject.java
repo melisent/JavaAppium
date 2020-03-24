@@ -1,5 +1,4 @@
 package lib.ui;
-import io.appium.java_client.AppiumDriver;
 import lib.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -11,11 +10,14 @@ abstract public class ArticlePageObject extends MainPageObject{
         FOOTER_ELEMENT,
         OPTIONS_BUTTON,
         OPTIONS_ADD_TO_MY_LIST,
+        OPTIONS_REMOVE_FROM_MY_LIST_BUTTON,
         ADD_TO_MY_LIST_OVERLAY,
         MY_LIST_NAME_INPUT,
         MY_LIST_OK_BUTTON,
         CLOSE_ARTICLE_BUTTON,
-        LIST_FOLDER_BY_NAME_TPL;
+        LIST_FOLDER_BY_NAME_TPL,
+            OPTIONS_ADD_TO_MY_LIST_AFTER_AUTH,
+    FIRST_BOLD_ARTICLE_WORD;
 
     public ArticlePageObject(RemoteWebDriver driver) {
         super(driver);
@@ -44,6 +46,19 @@ abstract public class ArticlePageObject extends MainPageObject{
             return title_element.getText();
         }
     }
+
+    public WebElement waitForFirstBoldArticleWord()
+    {
+        return this.waitForElementPresent(FIRST_BOLD_ARTICLE_WORD, "Cannot find first bold article word", 15);
+    }
+    public String getArticleFirstBoldArticleWord() {
+        WebElement bold_word_element = waitForFirstBoldArticleWord();
+        if (Platform.getInstance().isMW()) {
+            return bold_word_element.getText();
+        } else {
+            System.out.println("Method waitForFirstBoldArticleWord does nothing for platform " + Platform.getInstance().getPlatformVar());
+        return null;
+    }}
 
     public void swipeToFooter()
     {
@@ -96,10 +111,14 @@ abstract public class ArticlePageObject extends MainPageObject{
 
     public void closeArticle()
     {
+        if ((Platform.getInstance().isAndroid()) || (Platform.getInstance().isIOS())) {
         this.waitForElementAndClick(
                 CLOSE_ARTICLE_BUTTON,
                 "Cannot close article, Cannot find X",
                 5);
+    } else {
+            System.out.println(" Method closArticle does nothing for " + Platform.getInstance().getPlatformVar());
+        }
     }
 
     public void assertArticleTitlePresents ()
@@ -121,8 +140,37 @@ abstract public class ArticlePageObject extends MainPageObject{
                 5);
     }
 
+    public void removeArticleFromSavedIfItAdded() {
+        if (this.isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)) {
+            this.waitForElementAndClick(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON, "Cannot click button to remove added article", 2);
+        this.waitForElementPresent(
+                OPTIONS_ADD_TO_MY_LIST_AFTER_AUTH, "Cannot find button to add an atricle to saved articles after removing it from this list", 5);
+        OPTIONS_ADD_TO_MY_LIST = OPTIONS_ADD_TO_MY_LIST_AFTER_AUTH;
+        }
+    }
+
     public void addArticlesToMySaved()
     {
+        String remember_string = OPTIONS_ADD_TO_MY_LIST;
+        if (Platform.getInstance().isMW()) {
+            this.removeArticleFromSavedIfItAdded();
+        }
+
         this.waitForElementAndClick(OPTIONS_ADD_TO_MY_LIST, "Cannot find option to add article to my reading list", 5);
+    OPTIONS_ADD_TO_MY_LIST = remember_string;
+    }
+    public void addArticlesToMySavedAfterAuth()
+    {
+        if (Platform.getInstance().isMW()) {
+            this.removeArticleFromSavedIfItAdded();
+        }
+
+        if (Platform.getInstance().isMW()) {
+            this.waitForElementAndClick(OPTIONS_ADD_TO_MY_LIST_AFTER_AUTH, "Cannot find option to add article to my reading list", 5);
+        } else {
+            System.out.println("Method addArticlesToMySavedAfterAuth does nothing for Platform " +Platform.getInstance().getPlatformVar());
+        }
+
+
     }
 }
