@@ -12,7 +12,9 @@ abstract public class MyListsPageObject extends MainPageObject {
         FOLDER_BY_NAME_TPL,
         ARTICLE_BY_TITLE_TPL,
         REMOVED_FROM_SAVED_BUTTON,
-        THE_ONE_SAVED_ARTICLE;
+        THE_ONE_SAVED_ARTICLE,
+        SAVED_ARTICLES_ELEMENT,
+        SEARCH_ELEMENT_AT_MY_LISTS;
 
     public MyListsPageObject (RemoteWebDriver driver)
     {
@@ -118,6 +120,26 @@ abstract public class MyListsPageObject extends MainPageObject {
 
     public void openTheOneSavedArticle() {
         this.waitForElementAndClick(THE_ONE_SAVED_ARTICLE, "There are more than one saved article",5);
+    }
+
+    public void findSavedArticleByTitle(String article_title) {
+        this.waitForElementAndClick(SEARCH_ELEMENT_AT_MY_LISTS, "Cannot find and click search element in My lists", 5);
+        this.waitForElementAndSendKeys(
+                SEARCH_ELEMENT_AT_MY_LISTS,
+                article_title,
+                "Cannot find and send keys to search element in My lists",
+                5);
+
+    }
+
+    public int getAmountOfFoundSavedArticles()
+    {
+        this.waitForElementPresent(
+               SAVED_ARTICLES_ELEMENT,
+                "Cannot find anything by the request",
+                20);
+
+        return this.getAmountOfElements(SAVED_ARTICLES_ELEMENT);
     }
 
 }

@@ -8,6 +8,10 @@ public class iOSMyListsPageObject extends MyListsPageObject {
     static
     {
     ARTICLE_BY_TITLE_TPL = "xpath://XCUIElement[contains(@name='{TITLE}')]";
+    SAVED_ARTICLES_ELEMENT = "xpath://XCUIElementTypeCell";
+    SEARCH_ELEMENT_AT_MY_LISTS = "xpath://XCUIElementTypeSearchField[@name='Search']";
+
+
     }
 
     public iOSMyListsPageObject(RemoteWebDriver driver)

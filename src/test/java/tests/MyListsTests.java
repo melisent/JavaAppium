@@ -55,6 +55,7 @@ public class MyListsTests extends CoreTestCase {
 
         NavigationUI NavigationUI = NavigationUIFactory.get(driver);
         NavigationUI.openNavigation();
+
         NavigationUI.clickMyLists();
 
         MyListsPageObject MyListsPageObject = MyListsPageObjectFactory.get(driver);
@@ -105,8 +106,7 @@ public class MyListsTests extends CoreTestCase {
         SearchPageObject.clickByArticleWithSub("rogramming language");
 
 
-        ArticlePageObject.waitForTitleElement();
-        String article_bold_word = ArticlePageObject.getArticleFirstBoldArticleWord();
+        ArticlePageObject.waitForTitleElementForSecondArticle();
 
         if (Platform.getInstance().isAndroid()) {
             ArticlePageObject.addArticleToMyList(name_of_folder);
@@ -126,15 +126,10 @@ public class MyListsTests extends CoreTestCase {
         }
 
         MyListsPageObject.swipeByArticleToDelete(article_title);
-        MyListsPageObject.openTheOneSavedArticle();
 
-        ArticlePageObject.waitForTitleElement();
-        String article_bold_word_after_deleting = ArticlePageObject.getArticleFirstBoldArticleWord();
+        MyListsPageObject.findSavedArticleByTitle("Ruby");
 
-        Assert.assertEquals(
-                "Wrong article was deleted",
-                article_bold_word,
-                article_bold_word_after_deleting
-        );
+        Assert.assertTrue("Wrong article was deleted",MyListsPageObject.getAmountOfFoundSavedArticles() > 0);
+
     }
 }

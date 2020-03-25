@@ -7,6 +7,7 @@ abstract public class ArticlePageObject extends MainPageObject{
 
     protected static String
         TITLE,
+        SECOND_TITLE,
         FOOTER_ELEMENT,
         OPTIONS_BUTTON,
         OPTIONS_ADD_TO_MY_LIST,
@@ -16,8 +17,8 @@ abstract public class ArticlePageObject extends MainPageObject{
         MY_LIST_OK_BUTTON,
         CLOSE_ARTICLE_BUTTON,
         LIST_FOLDER_BY_NAME_TPL,
-            OPTIONS_ADD_TO_MY_LIST_AFTER_AUTH,
-    FIRST_BOLD_ARTICLE_WORD;
+        OPTIONS_ADD_TO_MY_LIST_AFTER_AUTH,
+        FIRST_BOLD_ARTICLE_WORD;
 
     public ArticlePageObject(RemoteWebDriver driver) {
         super(driver);
@@ -34,6 +35,11 @@ abstract public class ArticlePageObject extends MainPageObject{
     public WebElement waitForTitleElement()
     {
        return this.waitForElementPresent(TITLE, "Cannot find article title on page", 15);
+    }
+
+    public WebElement waitForTitleElementForSecondArticle()
+    {
+        return this.waitForElementPresent(SECOND_TITLE, "Cannot find article title on page", 15);
     }
 
     public String getArticleTitle() {
